@@ -62,8 +62,6 @@
 
         .gif-container {
             position: absolute;
-            width: 150px;
-            height: 150px;
             animation: float 6s infinite ease-in-out;
             z-index: 5;
         }
@@ -97,22 +95,71 @@
         /* Adjust positions of images */
         #gif1 {
             top: 15%;
-            left: 10%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
         }
 
         #new-gif1 {
             top: 15%;
-            right: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
         }
 
         #new-gif2 {
-            bottom: 20%;
-            left: 10%;
+            bottom: 15%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
         }
 
         #new-gif3 {
-            bottom: 20%;
-            right: 10%;
+            bottom: 15%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .gif-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            #gif1 {
+                top: 10%;
+                left: 2%;
+            }
+
+            #new-gif1 {
+                top: 10%;
+                right: 2%;
+            }
+
+            #new-gif2 {
+                bottom: 10%;
+                left: 2%;
+            }
+
+            #new-gif3 {
+                bottom: 10%;
+                right: 2%;
+            }
         }
     </style>
 </head>
