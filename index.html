@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Forgive Me</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff4d4d;
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 10;
+        }
+
+        #yes-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #no-button {
+            background-color: #ff3333;
+            color: white;
+            position: absolute;
+            z-index: 10;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .gif-container {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            animation: float 6s infinite ease-in-out;
+            z-index: 5;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .thank-you {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .thank-you h1 {
+            color: #ff6699;
+        }
+
+        .thank-you img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Adjust positions of images */
+        #gif1 {
+            top: 15%;
+            left: 10%;
+        }
+
+        #new-gif1 {
+            top: 15%;
+            right: 10%;
+        }
+
+        #new-gif2 {
+            bottom: 20%;
+            left: 10%;
+        }
+
+        #new-gif3 {
+            bottom: 20%;
+            right: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <h1>Please forgive me 😢🙏❤️</h1>
+        <p>Click "YES" if you have forgiven me or "NO" if you haven't 😔</p>
+        <button id="yes-button">YES</button>
+        <button id="no-button">NO</button>
+    </div>
+
+    <div id="thank-you-screen" class="thank-you">
+        <h1>Thank You BABY! 😚😚❤️</h1>
+        <img src="./assets/ThankYou.jpg" alt="Thank You Image">
+    </div>
+
+    <!-- Memes and Images -->
+    <div id="gif1" class="gif-container">
+        <img src="./assets/Forgiveness.jpg" alt="Forgiveness Image">
+    </div>
+
+    <div id="new-gif1" class="gif-container">
+        <img src="./assets/michealsorry.jpg" alt="Micheal Sorry Image">
+    </div>
+
+    <div id="new-gif2" class="gif-container">
+        <img src="./assets/sorrystitch.jpg" alt="Sorry Stitch Image">
+    </div>
+
+    <div id="new-gif3" class="gif-container">
+        <img src="./assets/stevesorry.jpg" alt="Steve Sorry Image">
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no-button');
+        const yesButton = document.getElementById('yes-button');
+        const mainContent = document.getElementById('main-content');
+        const thankYouScreen = document.getElementById('thank-you-screen');
+        const gifContainers = document.querySelectorAll('.gif-container');
+
+        // Function to move the "NO" button
+        const moveNoButton = () => {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        };
+
+        // Add event listeners for both desktop and mobile
+        noButton.addEventListener('mouseenter', moveNoButton);
+        noButton.addEventListener('touchstart', moveNoButton);
+
+        // Handle "YES" button click
+        yesButton.addEventListener('click', () => {
+            mainContent.style.display = 'none';
+            gifContainers.forEach(gif => gif.style.display = 'none'); // Hide all images
+            thankYouScreen.style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
